@@ -43,6 +43,15 @@ end
 group :test do
     gem 'rspec'
 end
+# Sqlite is not supported on Heroku so it has be kept #out of the #production group. Try the following so that you can use #sqlite for #development and testing and then pg on Heroku.
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
